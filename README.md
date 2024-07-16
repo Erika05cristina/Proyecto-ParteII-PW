@@ -7,9 +7,10 @@ bibliarysv
 * contraseña: clave_123
 
 ### Data source
-Para el archivo "standalone" del Wildfly se ha añadido lo siguiente
+Para el archivo "standalone" del Wildfly se ha añadido lo siguiente:
+
 <datasource jta="true" jndi-name="java:jboss/datasources/bibliarysvDS" pool-name="bibliarysv" enabled="true" use-java-context="true" use-ccm="true">
-                    <connection-url>jdbc:postgresql://localhost:5432/bibliarysv</connection-url>
-                    <driver>postgresql-driver</driver>
-                    <security user-name="saquicelavilla" password="clave_123"/>
-                </datasource>
+           <connection-url>jdbc:postgresql://localhost:5432/bibliarysv</connection-url>
+           <driver>postgresql-driver</driver>
+           <security user-name="saquicelavilla" password="clave_123"/>
+</datasource>
