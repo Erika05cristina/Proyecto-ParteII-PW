@@ -1,5 +1,7 @@
 package Gestions;
 
+import java.util.List;
+
 import Dao.UserDao;
 import Model.User;
 import jakarta.ejb.Stateless;
@@ -39,6 +41,8 @@ public class GestionUser {
 		return userFound;
 	}
 	
-	
+	public List<User>listUsers(){
+		return this.userDao.listUsers();
+	}
 	
 }
