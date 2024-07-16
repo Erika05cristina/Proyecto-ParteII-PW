@@ -41,6 +41,7 @@ public class GestionUser {
 		return userFound;
 	}
 	
+	
 	public List<User>listUsers(){
 		return this.userDao.listUsers();
 	}
