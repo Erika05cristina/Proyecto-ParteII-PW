@@ -4,9 +4,12 @@ public class Answord {
 
 	private int codigo;
 	private String mensaje;
-	
+	/**
+	 * TODO Investigar que otros errores puedes colocar, para implementarlos en el serivce
+	 */
 	public static int OK = 1;
 	public static int ERROR = 99;
+	
 	
 	public Answord(int codigo, String mensaje) {
 		super();

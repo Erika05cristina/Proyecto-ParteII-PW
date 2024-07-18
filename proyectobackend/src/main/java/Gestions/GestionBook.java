@@ -36,8 +36,13 @@ public class GestionBook {
 		return this.bookDao.listBooks();
 	}
 	
+	
 	public List<Book> listBooksCategory(String category){
 		return this.bookDao.listBooksCategories(category);
 	}
+	
+	/**
+	 * TODO falta el eliminar
+	 */
 	
 }
