@@ -38,7 +38,7 @@ public class UserService {
 	public User getUser(@PathParam("id") int id) {
 		try {
 			return this.gestionUser.searchUser(id);
-			
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

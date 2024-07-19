@@ -44,5 +44,23 @@ public class GestionBook {
 	/**
 	 * TODO falta el eliminar
 	 */
+	public Book searchBook(int id) throws Exception{
+		Book bookFound = this.bookDao.searchBook(id);
+		
+		if(bookFound == null) throw new Exception("Libro no encontrado") ;
+			return bookFound;
+		
+	}
+	
+	public void deleteBook (int id)throws Exception{
+		Book book = bookDao.searchBook(id);
+		if(book == null) {				
+			throw new Exception("Libro no existe");
+		}
+		else {
+			bookDao.deleteBook(id);
+		}
+	}
+	
 	
 }
