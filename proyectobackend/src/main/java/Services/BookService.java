@@ -141,7 +141,6 @@ public class BookService {
 			this.gestionBook.deleteBook(isNumeric);
 			return Response.ok(codigo).status(200).build();
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 
 			return Response.status(503).entity(new Answord(Answord.ERROR, "Error en BD")).build();
