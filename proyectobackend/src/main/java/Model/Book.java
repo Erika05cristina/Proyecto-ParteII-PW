@@ -16,14 +16,17 @@ public class Book {
 	@Column(name ="boo_name")
 	private String boo_name;
 	
-	@Column (name ="boo_image")
+	@Column (name ="boo_image", columnDefinition = "TEXT")
 	private String boo_image;
 	
 	@Column (name ="boo_autor")
-	private String boo_autro;
+	private String boo_autor;
 	
 	@Column (name ="boo_category")
 	private String boo_category;
+	
+	@Column (name="boo_description", columnDefinition = "TEXT")
+	private String boo_description;
 
 	public int getBoo_id() {
 		return boo_id;
@@ -48,14 +51,7 @@ public class Book {
 	public void setBoo_image(String boo_image) {
 		this.boo_image = boo_image;
 	}
-
-	public String getBoo_autro() {
-		return boo_autro;
-	}
-
-	public void setBoo_autro(String boo_autro) {
-		this.boo_autro = boo_autro;
-	}
+	
 
 	public String getBoo_category() {
 		return boo_category;
@@ -64,6 +60,25 @@ public class Book {
 	public void setBoo_category(String boo_category) {
 		this.boo_category = boo_category;
 	}
+
+	public String getBoo_description() {
+		return boo_description;
+	}
+
+	public void setBoo_description(String boo_description) {
+		this.boo_description = boo_description;
+	}
+
+	public String getBoo_autor() {
+		return boo_autor;
+	}
+
+	public void setBoo_autor(String boo_autor) {
+		this.boo_autor = boo_autor;
+	}
+
+	
+	
 	
 	
 	

@@ -4,11 +4,7 @@ public class Answord {
 
 	private int codigo;
 	private String mensaje;
-	/**
-	 * TODO Investigar que otros errores puedes colocar, para implementarlos en el
-	 * serivce
-	 */
-
+	
 	// Operación exitosa
 	public static final int OK = 1;
 
@@ -17,6 +13,7 @@ public class Answord {
 
 	// Error de validación de datos
 	public static final int VALIDATION_ERROR = 2;
+	public static final String MESSAGE_VALIDATION_ERROR = "Campos vacios";
 
 	// Error de autenticación
 	public static final int AUTHENTICATION_ERROR = 3;
@@ -27,8 +24,17 @@ public class Answord {
 	// Error de lógica de negocio
 	public static final int BUSINESS_ERROR = 5;
 
+	public static final int EMPTY_FIELDS = 6;
+	public static final String MESSAGE_EMPTY_FIELDS = "Campo vacio";
 	// Error de recurso no encontrado
-	public static final int NOT_FOUND_ERROR = 6;
+	
+	public static final int NOT_FOUND_ERROR = 7;
+	public static final String MESSAGE_NOT_FOUND_ERROR = "No encontrado";
+	
+	//
+	public static final int PARAMETER_INVALID = 8;
+	public static final String MESSAGE_PARAMETER_INVALID = "Parametro invalido";
+	
 
 	// Error interno del servidor
 	public static final int INTERNAL_SERVER_ERROR = 500;

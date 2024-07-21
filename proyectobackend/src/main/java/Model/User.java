@@ -28,7 +28,7 @@ public class User {
 	@Column (name="us_password")
 	private String us_password;
 	
-	@Column (name="us_image")
+	@Column (name="us_image", columnDefinition = "TEXT")
 	private String us_image;
 	
 	@Column (name="us_admin")

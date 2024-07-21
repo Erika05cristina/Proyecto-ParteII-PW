@@ -43,17 +43,15 @@ public class LendBookService {
     @GET
     @Path("/{id}")
     @Produces("application/json")
-    public Response getLendBook(@PathParam("id") int id) {
+    public LendBook getLendBook(@PathParam("id") int id) {
         try {
             LendBook lendBook = this.gestionLendBook.searchLendBook(id);
-            if (lendBook != null) {
-                return Response.ok(lendBook).build();
-            } else {
-                return Response.status(404).entity(new Answord(Answord.NOT_FOUND_ERROR, "LendBook no encontrado")).build();
-            }
+            if(lendBook == null) throw new Exception("Préstamo no encontrado");
+            
+            return lendBook;
         } catch (Exception e) {
             e.printStackTrace();
-            return Response.status(503).entity(new Answord(Answord.ERROR, "Error en BD")).build();
+            return null;
         }
     }
 
@@ -69,5 +67,5 @@ public class LendBookService {
             return Response.status(503).entity(new Answord(Answord.ERROR, "Error en BD")).build();
         }
     }
-  
+ 
 }

@@ -9,6 +9,7 @@ import jakarta.inject.Inject;
 
 @Stateless
 public class GestionBook {
+	
 	@Inject
 	private BookDao bookDao;
 	
@@ -41,9 +42,7 @@ public class GestionBook {
 		return this.bookDao.listBooksCategories(category);
 	}
 	
-	/**
-	 * TODO falta el eliminar
-	 */
+	
 	public Book searchBook(int id) throws Exception{
 		Book bookFound = this.bookDao.searchBook(id);
 		
@@ -54,12 +53,11 @@ public class GestionBook {
 	
 	public void deleteBook (int id)throws Exception{
 		Book book = bookDao.searchBook(id);
-		if(book == null) {				
-			throw new Exception("Libro no existe");
-		}
-		else {
+		if(book == null) throw new Exception("Libro no existe");
+		
+		
 			bookDao.deleteBook(id);
-		}
+		
 	}
 	
 	

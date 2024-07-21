@@ -8,6 +8,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table (name="Bib_LendBook")
 public class LendBook {
+	
 	@Id
 	@Column (name = " lenboo_id")
 	private int lenboo_id;
@@ -63,8 +64,5 @@ public class LendBook {
 	public void setLenboo_date(String lenboo_date) {
 		this.lenboo_date = lenboo_date;
 	}
-	
-	
-	
 	
 }
