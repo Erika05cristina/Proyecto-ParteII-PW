@@ -39,8 +39,7 @@ public class GestionUser {
 		if(userFound == null) throw new Exception ("Usuario no encontrado");
 		
 		return userFound;
-	}
-	
+	}	
 	
 	public List<User>listUsers(){
 		return this.userDao.listUsers();
