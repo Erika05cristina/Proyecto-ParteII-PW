@@ -52,25 +52,49 @@ public class JwtUtil {
 		return extractExpiration(token).before(new Date());
 	}
 
-	public String generateToken(User user) {
-		Map<String, Object> claims = new HashMap<>();
-		return createToken(claims, user.getUs_email());
-	}
+//	public String generateToken(User user) {
+//		Map<String, Object> claims = new HashMap<>();
+//		return createToken(claims, user.getUs_email(), user.getUs_id());
+//	}
 
 // valor representa 10 horas en milisegundos
 //    1000 milisegundos por segundo.
 //    60 segundos por minuto.
 //    60 minutos por hora.
 //    10 horas.
-
+//
+//	private String createToken(Map<String, Object> claims, String subject, int i) {
+//		return Jwts.builder().setClaims(claims).setSubject(subject).setIssuedAt(new Date(System.currentTimeMillis()))
+//				.setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10)).signWith(SECRET_KEY)
+//				.compact();
+//	}
+//
+//	public Boolean validateToken(String token, User user) {
+//		final String usernameFromToken = extractUsername(token);
+//		return (usernameFromToken.equals(user.getUs_email()) && !isTokenExpired(token));
+//	}
+	public String generateToken(User user) {
+	    Map<String, Object> claims = new HashMap<>();
+	    claims.put("email", user.getUs_email());
+	    claims.put("id", user.getUs_id());
+	    return createToken(claims, user.getUs_email());
+	}
+	
 	private String createToken(Map<String, Object> claims, String subject) {
-		return Jwts.builder().setClaims(claims).setSubject(subject).setIssuedAt(new Date(System.currentTimeMillis()))
-				.setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10)).signWith(SECRET_KEY)
-				.compact();
+	    return Jwts.builder()
+	            .setClaims(claims)
+	            .setSubject(subject)
+	            .setIssuedAt(new Date(System.currentTimeMillis()))
+	            .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10))
+	            .signWith(SECRET_KEY)
+	            .compact();
 	}
-
 	public Boolean validateToken(String token, User user) {
-		final String usernameFromToken = extractUsername(token);
-		return (usernameFromToken.equals(user.getUs_email()) && !isTokenExpired(token));
+	    final Claims claims = extractAllClaims(token);
+	    final String usernameFromToken = claims.get("email", String.class);
+	    final String userIdFromToken = claims.get("id", String.class);
+	    return (usernameFromToken.equals(user.getUs_email()) && userIdFromToken.equals(user.getUs_id()) && !isTokenExpired(token));
 	}
+	
+	
 }

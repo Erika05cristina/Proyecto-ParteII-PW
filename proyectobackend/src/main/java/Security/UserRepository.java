@@ -18,4 +18,5 @@ public class UserRepository {
 		User user = userDao.searchEmailUser(email);
 		return user != null ? Optional.of(user) : Optional.empty();
 	}
+	
 }
