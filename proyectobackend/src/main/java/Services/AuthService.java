@@ -1,5 +1,7 @@
 package Services;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 import Model.AuthenticationRequest;
@@ -35,7 +37,12 @@ public class AuthService {
             final String jwt = jwtUtil.generateToken(user);
             return Response.ok(new AuthenticationResponse(jwt)).build();
         } else {
-            return Response.status(Response.Status.UNAUTHORIZED).entity("Usuario o contraseña incorrectos").build();
+            // Crear un mapa para el mensaje de error
+            Map<String, String> errorResponse = new HashMap<>();
+            errorResponse.put("error", "Usuario o contraseña incorrectos");
+
+            // Devolver la respuesta con el mapa como JSON
+            return Response.status(Response.Status.UNAUTHORIZED).entity(errorResponse).build();
         }
     }
 }
