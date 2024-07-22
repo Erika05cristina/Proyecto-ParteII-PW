@@ -49,7 +49,8 @@ public class JwtRequestFilter extends HttpFilter {
         if (username != null && request.getUserPrincipal() == null) {
             Optional<User> userDetails = userRepository.findByUsEmail(username);
             if (userDetails.isPresent() && jwtUtil.validateToken(jwt, userDetails.get())) {
-                // Aquí puedes establecer la seguridad en el contexto de la aplicación si es necesario
+                // Establecer la seguridad en el contexto de la aplicación si es necesario
+//            	request.setAttribute("user", userDetails.get());
             } else {
                 response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Token inválido");
                 return;
