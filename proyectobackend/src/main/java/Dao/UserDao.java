@@ -51,6 +51,19 @@ public class UserDao {
 		}		
 	}
 	
+	public User searchNameUser(String username) {
+		try {
+			String jpql = "SELECT u FROM User u WHERE u.us_username = :username";
+			Query query = em.createQuery(jpql, User.class);
+			query.setParameter("username", username);
+			
+			return (User) query.getSingleResult();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	public User searchIdUser(int id) {
 		try {
 			return em.find(User.class, id);
