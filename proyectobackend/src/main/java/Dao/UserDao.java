@@ -86,6 +86,8 @@ public class UserDao {
 	
 	public List<User> listUsers(){
 		String jpql = "SELECT u FROM User u";
+		//***
+	    System.out.println("Executing JPQL query: " + jpql); // Imprime el query en consola
 		Query query = em.createQuery(jpql, User.class);
 		
 		return query.getResultList();

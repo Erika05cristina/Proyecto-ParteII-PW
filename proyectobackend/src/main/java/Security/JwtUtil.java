@@ -8,7 +8,6 @@ import java.util.function.Function;
 
 import javax.crypto.SecretKey;
 
-import Dao.UserDao;
 import Model.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -89,12 +88,20 @@ public class JwtUtil {
 	            .signWith(SECRET_KEY)
 	            .compact();
 	}
+//	public Boolean validateToken(String token, User user) {
+//	    final Claims claims = extractAllClaims(token);
+//	    final String usernameFromToken = claims.get("email", String.class);
+//	    final String userIdFromToken = claims.get("id", String.class);
+//	    return (usernameFromToken.equals(user.getUs_email()) && userIdFromToken.equals(user.getUs_id()) && !isTokenExpired(token));
+//	}
+	
 	public Boolean validateToken(String token, User user) {
 	    final Claims claims = extractAllClaims(token);
 	    final String usernameFromToken = claims.get("email", String.class);
-	    final String userIdFromToken = claims.get("id", String.class);
+	    final Integer userIdFromToken = claims.get("id", Integer.class);
 	    return (usernameFromToken.equals(user.getUs_email()) && userIdFromToken.equals(user.getUs_id()) && !isTokenExpired(token));
 	}
+
 	
 	
 }

@@ -66,7 +66,10 @@ public class BookService {
 	@GET
 	@Produces("application/json")
 	public List<Book> listBooks() {
-		return this.gestionBook.listBooks();
+		//***
+		List<Book> books = gestionBook.listBooks();
+		return books;
+		//		return this.gestionBook.listBooks();
 	}
 
 	@GET

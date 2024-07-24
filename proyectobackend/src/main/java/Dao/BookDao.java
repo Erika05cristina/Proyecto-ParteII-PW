@@ -33,7 +33,9 @@ public class BookDao {
 	
 	public Book searchBook (int id) {
 		try {
-			return em.find(Book.class, id);
+			//**
+			Book book = em.find(Book.class, id);
+			return book;
 		} catch (Exception e) {
 			// TODO: handle exception
 			return null;
@@ -53,7 +55,10 @@ public class BookDao {
 	}
 	
 	public List<Book> listBooks(){
-		String jpql = "SELECT c From Book c";
+		String jpql = "SELECT b From Book b";
+		//***
+	    System.out.println("Executing JPQL query: " + jpql); // Imprime el query en consola
+
 		Query query = em.createQuery(jpql, Book.class);
 		
 		return query.getResultList();
