@@ -51,7 +51,7 @@ public class Start {
 		book2.setBoo_autor("J. K. Rowling");
 		book2.setBoo_category("Ficcion");
 		book2.setBoo_description("Harry Potter es una serie de novelas fantásticas escrita por la autora británica J. K. Rowling, en la que se describen las aventuras del joven aprendiz de magia y hechicería Harry Potter y sus amigos Hermione Granger y Ron Weasley, durante los años que pasan en el Colegio Hogwarts de Magia y Hechicería.");
-		book2.setBoo_image(ImageData.perfume);
+		book2.setBoo_image(ImageData.harryPotter);
 		
 		// |----  Users  ----|
 		
@@ -77,10 +77,10 @@ public class Start {
 		// ---- Lends ----
 		
 		lendBook.setLenboo_id(1);
-		lendBook.setLenboo_name("Harry Potter");
-		lendBook.setLenboo_category("Ficcion");
-		lendBook.setLenboo_date("05/07/2024");
-		lendBook.setLenboo_nameUser("Erika");
+		lendBook.setLenboo_name(book2.getBoo_name());
+		lendBook.setLenboo_category(book2.getBoo_category());
+		lendBook.setLenboo_date("05/07/2024 - 10/07/2024");
+		lendBook.setLenboo_nameUser(user.getUs_name());
 		
 		// ---- Insert Data ----
 		
