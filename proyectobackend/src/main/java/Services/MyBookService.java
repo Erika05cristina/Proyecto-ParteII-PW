@@ -19,7 +19,7 @@ import jakarta.ws.rs.core.Response;
 public class MyBookService {
 	@Inject
 	private GestionMyBook gestionMyBook;
-	
+
 	@POST
 	@Produces("application/json")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -33,9 +33,9 @@ public class MyBookService {
 				return Response.status(400).entity(new Answord(Answord.EMPTY_FIELDS, Answord.MESSAGE_VALIDATION_ERROR))
 						.build();
 
-			if (book.getMyBoo_idUser() == 0) 
+			if (book.getMyBoo_idUser() == 0)
 				return Response.status(400).entity(new Answord(Answord.EMPTY_FIELDS, Answord.MESSAGE_VALIDATION_ERROR))
-						.build();			
+						.build();
 
 			if (book.getMyBoo_nameBook() == null)
 				return Response.status(400).entity(new Answord(Answord.EMPTY_FIELDS, Answord.MESSAGE_VALIDATION_ERROR))
@@ -47,7 +47,8 @@ public class MyBookService {
 
 			if (book.getMyBoo_stateBook() == null || "Disponible".equals(book.getMyBoo_stateBook())) {
 				return Response.status(400).entity(new Answord(Answord.EMPTY_FIELDS, Answord.MESSAGE_VALIDATION_ERROR))
-						.build();}
+						.build();
+			}
 
 			this.gestionMyBook.createMyBook(book);
 			return Response.ok(book).status(200).build();
@@ -62,8 +63,26 @@ public class MyBookService {
 
 	@GET
 	@Produces("application/json")
-	public List<MyBooks> listBooks() {
-		return this.gestionMyBook.listMyBooks();
+	public List<MyBooks> listAllBooks() {
+		try {
+			return this.gestionMyBook.listAllMyBooks();
+		} catch (Exception e) {
+			// TODO: handle exception
+			return null;
+		}
+	}
+
+	@GET
+	@Path("mb/{idUser}")
+	@Produces("application/json")
+	public List<MyBooks> listBooks(@PathParam("idUser") int idUser) {
+		try {
+
+			return this.gestionMyBook.listMyBooks(idUser);
+		} catch (Exception e) {
+			// TODO: handle exception
+			return null;
+		}
 	}
 
 	@DELETE
@@ -71,9 +90,9 @@ public class MyBookService {
 	public Response deleteBook(@PathParam("codigo") String codigo) {
 		try {
 			if (codigo == null | codigo.equals(""))
-				return Response.status(400)
-						.entity(new Answord(Answord.EMPTY_FIELDS, Answord.MESSAGE_EMPTY_FIELDS)).build();
-			
+				return Response.status(400).entity(new Answord(Answord.EMPTY_FIELDS, Answord.MESSAGE_EMPTY_FIELDS))
+						.build();
+
 			int isNumeric;
 			try {
 				isNumeric = Integer.parseInt(codigo);

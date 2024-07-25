@@ -96,7 +96,7 @@ public class BookDao {
 	 * @return query
 	 */
 	public List<Book> listBooksAutor(String autor){
-		String jpql = "SELECT c FROM Book c WHERE c.boo_autor = :name";		
+		String jpql = "SELECT c FROM Book c WHERE c.boo_autor = :autor";		
 		Query query = em.createQuery(jpql, Book.class);
 		query.setParameter("autor", autor);
 		

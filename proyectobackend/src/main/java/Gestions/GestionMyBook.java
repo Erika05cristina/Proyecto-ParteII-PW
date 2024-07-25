@@ -31,8 +31,12 @@ public class GestionMyBook {
 		this.myBookDao.updateMyBooks(book);
 	}
 	
-	public List<MyBooks> listMyBooks(){
-		return this.myBookDao.listMyBooks();
+	public List<MyBooks> listAllMyBooks(){
+		return this.myBookDao.listAllMyBooks();
+	}
+	
+	public List<MyBooks> listMyBooks(int idUser){
+		return this.myBookDao.listMyBooks(idUser);
 	}
 	
 	

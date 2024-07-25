@@ -9,18 +9,19 @@ import jakarta.persistence.Table;
 @Table (name="Bib_MyBooks")
 public class MyBooks {
 	@Id
-	@Column (name = " myBoo_id")
+	@Column (name = "myBoo_id")
 	private int myBoo_id;
-	@Column (name = " myBoo_idUser")
+	@Column (name = "myBoo_idUser")
 	private int myBoo_idUser;
-	@Column (name = " myBoo_nameUser")
+	@Column (name = "myBoo_nameUser")
 	private String myBoo_nameUser;
-	@Column (name = " myBoo_idBook")
+	@Column (name = "myBoo_idBook")
 	private int myBoo_idBook;
-	@Column (name = " myBoo_nameBook")
+	@Column (name = "myBoo_nameBook")
 	private String myBoo_nameBook;
-	@Column (name = " myBoo_stateBook")
+	@Column (name = "myBoo_stateBook")
 	private String myBoo_stateBook;
+	
 	public int getMyBoo_id() {
 		return myBoo_id;
 	}
