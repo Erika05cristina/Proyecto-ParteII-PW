@@ -7,6 +7,7 @@ import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
+import jakarta.persistence.TypedQuery;
 
 @Stateless
 public class LendBookDAO {
@@ -45,4 +46,10 @@ public class LendBookDAO {
 		
 		return query.getResultList();
 	}
+	
+	public List<LendBook> listPendingReturns() {
+        String jpql = "SELECT lb FROM LendBook lb WHERE lb.returnDate IS NULL";
+        TypedQuery<LendBook> query = em.createQuery(jpql, LendBook.class);
+        return query.getResultList();
+    }
 }

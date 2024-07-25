@@ -5,6 +5,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+/**
+ * @description Historial de los libros prestados
+*/
+
 @Entity
 @Table (name="Bib_LendBook")
 public class LendBook {
@@ -22,8 +26,11 @@ public class LendBook {
 	@Column (name = "lenboo_nameUser")
 	private String lenboo_nameUser;
 	
-	@Column (name = "lenboo_date")
-	private String lenboo_date;
+	@Column (name = "lenboo_inicial_date")
+	private String lenboo_inicial_date;
+	
+	@Column (name = "lenboo_limit_date")
+	private String lenboo_limit_date;
 
 	public int getLenboo_id() {
 		return lenboo_id;
@@ -57,12 +64,21 @@ public class LendBook {
 		this.lenboo_nameUser = lenboo_nameUser;
 	}
 
-	public String getLenboo_date() {
-		return lenboo_date;
+	public String getLenboo_inicial_date() {
+		return lenboo_inicial_date;
 	}
 
-	public void setLenboo_date(String lenboo_date) {
-		this.lenboo_date = lenboo_date;
+	public void setLenboo_inicial_date(String lenboo_inicial_date) {
+		this.lenboo_inicial_date = lenboo_inicial_date;
 	}
+
+	public String getLenboo_limit_date() {
+		return lenboo_limit_date;
+	}
+
+	public void setLenboo_limit_date(String lenboo_limit_date) {
+		this.lenboo_limit_date = lenboo_limit_date;
+	}
+
 	
 }

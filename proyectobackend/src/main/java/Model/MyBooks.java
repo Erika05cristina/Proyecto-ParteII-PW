@@ -27,6 +27,13 @@ public class MyBooks {
 	@Column (name = "myBoo_stateBook")
 	private String myBoo_stateBook;
 	
+	@Column (name = "myBoo_inicial_date")
+	private String myBoo_inicial_date;
+	
+	@Column (name = "myBoo_limit_date")
+	private String myBoo_limit_date;
+	
+	
 	public int getMyBoo_id() {
 		return myBoo_id;
 	}
@@ -63,6 +70,19 @@ public class MyBooks {
 	public void setMyBoo_stateBook(String myBoo_stateBook) {
 		this.myBoo_stateBook = myBoo_stateBook;
 	}
+	public String getMyBoo_inicial_date() {
+		return myBoo_inicial_date;
+	}
+	public void setMyBoo_inicial_date(String myBoo_inicial_date) {
+		this.myBoo_inicial_date = myBoo_inicial_date;
+	}
+	public String getMyBoo_limit_date() {
+		return myBoo_limit_date;
+	}
+	public void setMyBoo_limit_date(String myBoo_limit_date) {
+		this.myBoo_limit_date = myBoo_limit_date;
+	}
+	
 	
 	
 	

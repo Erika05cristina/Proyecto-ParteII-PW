@@ -89,7 +89,8 @@ public class Start {
 		lendBook.setLenboo_id(1);
 		lendBook.setLenboo_name(book2.getBoo_name());
 		lendBook.setLenboo_category(book2.getBoo_category());
-		lendBook.setLenboo_date("05/07/2024 - 10/07/2024");
+		lendBook.setLenboo_inicial_date("05/07/2024");
+		lendBook.setLenboo_name("10/07/2024");
 		lendBook.setLenboo_nameUser(user.getUs_name());
 		
 		// ---- Return -----
