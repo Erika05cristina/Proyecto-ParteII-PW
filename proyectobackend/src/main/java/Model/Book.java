@@ -27,6 +27,9 @@ public class Book {
 	
 	@Column (name="boo_description", columnDefinition = "TEXT")
 	private String boo_description;
+	
+	@Column (name="boo_state")
+	private String boo_state;
 
 	public int getBoo_id() {
 		return boo_id;
@@ -77,6 +80,15 @@ public class Book {
 		this.boo_autor = boo_autor;
 	}
 
+	public String getBoo_state() {
+		return boo_state;
+	}
+
+	public void setBoo_state(String boo_state) {
+		this.boo_state = boo_state;
+	}
+
+	
 	
 	
 	

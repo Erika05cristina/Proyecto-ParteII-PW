@@ -105,11 +105,12 @@ public class UserService {
 		}
 	}
 
-//	@GET
-//	@Produces("application/json")
-//	public List<User> listUsers() {
-//		return this.gestionUser.listUsers();
-//	}
+	@GET
+	@Path("/list-users")
+	@Produces("application/json")
+	public List<User> listUsers() {
+		return this.gestionUser.listUsers();
+	}
 	
 	@PUT
 	@Produces(MediaType.APPLICATION_JSON)

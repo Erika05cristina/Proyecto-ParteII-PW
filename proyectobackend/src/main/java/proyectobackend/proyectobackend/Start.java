@@ -4,6 +4,7 @@ import Dao.BookDao;
 import Dao.LendBookDAO;
 import Dao.UserDao;
 import Data.ImageData;
+import Data.States;
 import Model.Book;
 import Model.LendBook;
 import Model.User;
@@ -35,7 +36,7 @@ public class Start {
 		Book book2 = new Book();
 		
 		User userAdmin = new User();
-		User user = new User();
+		User user = new User();	
 		User user2 = new User();
 				
 		// ---- Books ----
@@ -45,6 +46,7 @@ public class Start {
 		book.setBoo_category("Tragedia");
 		book.setBoo_description("Lorem Ipsum\" va a dar por resultado muchos sitios web que usan este texto si se encuentran en estado de desarrollo. Muchas versiones han evolucionado a través de los años, algunas veces por accidente, otras veces a propósito (por ejemplo insertándole humor y cosas por el estilo).");
 		book.setBoo_image(ImageData.perfume);
+		book.setBoo_state(States.disponible);
 		
 		book2.setBoo_id(2);
 		book2.setBoo_name("Harry Potter");
@@ -52,6 +54,7 @@ public class Start {
 		book2.setBoo_category("Ficcion");
 		book2.setBoo_description("Harry Potter es una serie de novelas fantásticas escrita por la autora británica J. K. Rowling, en la que se describen las aventuras del joven aprendiz de magia y hechicería Harry Potter y sus amigos Hermione Granger y Ron Weasley, durante los años que pasan en el Colegio Hogwarts de Magia y Hechicería.");
 		book2.setBoo_image(ImageData.harryPotter);
+		book2.setBoo_state(States.disponible);
 		
 		// |----  Users  ----|
 		
