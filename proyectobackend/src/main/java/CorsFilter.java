@@ -11,6 +11,7 @@ import jakarta.ws.rs.ext.Provider;
 public class CorsFilter implements ContainerResponseFilter {
 	
 	/** @description Lista de las url permitidas por nuestra api*/
+	
 	private static final List<String> ALLOWED_ORIGINS = Arrays.asList(
 			"http://localhost:4200",
 			"http://localhost:58184"
