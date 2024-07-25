@@ -11,14 +11,19 @@ public class MyBooks {
 	@Id
 	@Column (name = "myBoo_id")
 	private int myBoo_id;
+	
 	@Column (name = "myBoo_idUser")
 	private int myBoo_idUser;
+	
 	@Column (name = "myBoo_nameUser")
 	private String myBoo_nameUser;
+	
 	@Column (name = "myBoo_idBook")
 	private int myBoo_idBook;
+	
 	@Column (name = "myBoo_nameBook")
 	private String myBoo_nameBook;
+	
 	@Column (name = "myBoo_stateBook")
 	private String myBoo_stateBook;
 	

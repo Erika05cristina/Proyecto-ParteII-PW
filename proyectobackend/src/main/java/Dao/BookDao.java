@@ -3,6 +3,7 @@ package Dao;
 import java.util.List;
 
 import Model.Book;
+import Model.MyBooks;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -103,6 +104,7 @@ public class BookDao {
 		return query.getResultList();
 	}
 	
+	
 	/**
 	 * @description función para obtener un listado de libros segun el estado pasada por el parametro
 	 * @param name
@@ -114,5 +116,17 @@ public class BookDao {
 		query.setParameter("state", state);
 		
 		return query.getResultList();
+	}
+	
+	
+	public List<Book> listBookFromMyBook(int idUser){		
+		String jpql = "SELECT b FROM Book b, MyBooks mb " + "WHERE mb.myBoo_idBook = b.boo_id "
+				+ "AND mb.myBoo_idUser = :idUser";
+		
+		Query query = em.createQuery(jpql, MyBooks.class);
+		query.setParameter("idUser", idUser);
+		
+		return query.getResultList();
+
 	}
 }

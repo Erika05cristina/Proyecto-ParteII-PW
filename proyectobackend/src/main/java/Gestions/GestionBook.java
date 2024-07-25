@@ -67,7 +67,13 @@ public class GestionBook {
 		if(book == null) throw new Exception("Libro no existe");
 		
 		
-			bookDao.deleteBook(id);
+			bookDao.deleteBook(id);		
+	}
+	
+	public List<Book> listBooksFromMyBooks(int idUser) throws Exception{
+		if (idUser == 0) throw new Exception("Id no valido");
+		
+		return bookDao.listBookFromMyBook(idUser);
 		
 	}
 	

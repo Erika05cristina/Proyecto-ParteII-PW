@@ -4,6 +4,7 @@ import java.util.List;
 
 import Gestions.GestionBook;
 import Model.Book;
+import Model.MyBooks;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
@@ -121,6 +122,19 @@ public class BookService {
 		try {
 			return this.gestionBook.listBooksAutor(autor);
 
+		} catch (Exception e) {
+			// TODO: handle exception
+			return null;
+		}
+	}
+	
+	@GET
+	@Path("mb/{idUser}")
+	@Produces("application/json")
+	public List<Book> listBooks(@PathParam("idUser") int idUser) {
+		try {
+
+			return this.gestionBook.listBooksFromMyBooks(idUser);
 		} catch (Exception e) {
 			// TODO: handle exception
 			return null;
