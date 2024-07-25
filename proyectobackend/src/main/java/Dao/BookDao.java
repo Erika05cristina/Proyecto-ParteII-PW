@@ -76,4 +76,43 @@ public class BookDao {
 		
 		return query.getResultList();
 	}
+	
+	/**
+	 * @description función para obtener un listado de libros segun el nombre pasada por el parametro
+	 * @param name
+	 * @return query
+	 */
+	public List<Book> listBooksName(String name){
+		String jpql = "SELECT c FROM Book c WHERE c.boo_name = :name";		
+		Query query = em.createQuery(jpql, Book.class);
+		query.setParameter("name", name);
+		
+		return query.getResultList();
+	}
+	
+	/**
+	 * @description función para obtener un listado de libros segun el autor pasada por el parametro
+	 * @param name
+	 * @return query
+	 */
+	public List<Book> listBooksAutor(String autor){
+		String jpql = "SELECT c FROM Book c WHERE c.boo_autor = :name";		
+		Query query = em.createQuery(jpql, Book.class);
+		query.setParameter("autor", autor);
+		
+		return query.getResultList();
+	}
+	
+	/**
+	 * @description función para obtener un listado de libros segun el estado pasada por el parametro
+	 * @param name
+	 * @return query
+	 */
+	public List<Book> listBooksState(String state){
+		String jpql = "SELECT c FROM Book c WHERE c.boo_state = :state";		
+		Query query = em.createQuery(jpql, Book.class);
+		query.setParameter("state", state);
+		
+		return query.getResultList();
+	}
 }

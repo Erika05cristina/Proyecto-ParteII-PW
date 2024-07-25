@@ -42,6 +42,17 @@ public class GestionBook {
 		return this.bookDao.listBooksCategories(category);
 	}
 	
+	public List<Book> listBooksName(String name){
+		return this.bookDao.listBooksName(name);
+	}
+	
+	public List<Book> listBooksAutor(String autor){
+		return this.bookDao.listBooksAutor(autor);
+	}
+	
+	public List<Book> listBooksState(String state){
+		return this.bookDao.listBooksState(state);
+	}
 	
 	public Book searchBook(int id) throws Exception{
 		Book bookFound = this.bookDao.searchBook(id);

@@ -75,15 +75,58 @@ public class BookService {
 	@GET
 	@Path("category/{category}")
 	@Produces("application/json")
-	public List<Book> listBooks(@PathParam("category") String category) {
+	public List<Book> listBooksCategory(@PathParam("category") String category) {
 		try {
-			return this.gestionBook.listBooks();
+//			return this.gestionBook.listBooks();
+			return this.gestionBook.listBooksCategory(category);
 
 		} catch (Exception e) {
 			// TODO: handle exception
 			return null;
 		}
 	}
+	
+	@GET
+	@Path("name/{name}")
+	@Produces("application/json")
+	public List<Book> listBooksName(@PathParam("name") String name) {
+		try {
+			return this.gestionBook.listBooksName(name);
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			return null;
+		}
+	}
+
+	
+	@GET
+	@Path("availability/{state}")
+	@Produces("application/json")
+	public List<Book> listBooksState(@PathParam("state") String state) {
+		try {
+			return this.gestionBook.listBooksState(state);
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			return null;
+		}
+	}
+	
+	
+	@GET
+	@Path("autor/{autor}")
+	@Produces("application/json")
+	public List<Book> listBooksAutor(@PathParam("autor") String autor) {
+		try {
+			return this.gestionBook.listBooksAutor(autor);
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			return null;
+		}
+	}
+		
 
 	@PUT
 	@Produces(MediaType.APPLICATION_JSON)
