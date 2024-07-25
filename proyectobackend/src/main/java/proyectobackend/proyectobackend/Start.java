@@ -2,11 +2,13 @@ package proyectobackend.proyectobackend;
 
 import Dao.BookDao;
 import Dao.LendBookDAO;
+import Dao.ReturnBookDAO;
 import Dao.UserDao;
 import Data.ImageData;
 import Data.States;
 import Model.Book;
 import Model.LendBook;
+import Model.ReturnBook;
 import Model.User;
 import jakarta.annotation.PostConstruct;
 import jakarta.ejb.Singleton;
@@ -25,12 +27,17 @@ public class Start {
 	
 	@Inject
 	private LendBookDAO lendBookDao;
+	
+	@Inject
+	private ReturnBookDAO returnBookDao;
 
 	@PostConstruct
 	public void init() {
 		System.out.println("Hola mundo");
 
 		LendBook lendBook = new LendBook();
+		
+		ReturnBook returnBook = new ReturnBook();
 		
 		Book book = new Book();
 		Book book2 = new Book();
@@ -85,6 +92,13 @@ public class Start {
 		lendBook.setLenboo_date("05/07/2024 - 10/07/2024");
 		lendBook.setLenboo_nameUser(user.getUs_name());
 		
+		// ---- Return -----
+		returnBook.setRetboo_id(1);
+		returnBook.setRetboo_name(book2.getBoo_name());
+		returnBook.setRetboo_nameUser(user.getUs_name());
+		returnBook.setRetboo_category(book2.getBoo_category());
+		returnBook.setRetboo_date("10/07/2024");
+		
 		// ---- Insert Data ----
 		
 		this.bookDao.createBook(book);
@@ -92,6 +106,9 @@ public class Start {
 		
 		this.userDao.createUser(userAdmin);
 		this.userDao.createUser(user);
+		
+		this.lendBookDao.createLendBook(lendBook);
+		this.returnBookDao.createReturnBook(returnBook);
 		
 		
 	}

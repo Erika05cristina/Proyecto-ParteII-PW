@@ -10,19 +10,19 @@ import jakarta.persistence.Table;
 public class LendBook {
 	
 	@Id
-	@Column (name = " lenboo_id")
+	@Column (name = "lenboo_id")
 	private int lenboo_id;
 	
-	@Column (name = " lenboo_name")
+	@Column (name = "lenboo_name")
 	private String lenboo_name;
 	
-	@Column (name = " lenboo_category")
+	@Column (name = "lenboo_category")
 	private String lenboo_category;
 	
-	@Column (name = " lenboo_nameUser")
+	@Column (name = "lenboo_nameUser")
 	private String lenboo_nameUser;
 	
-	@Column (name = " lenboo_date")
+	@Column (name = "lenboo_date")
 	private String lenboo_date;
 
 	public int getLenboo_id() {
