@@ -188,6 +188,9 @@ public class Start {
 		this.userDao.createUser(user2);
 		
 		this.lendBookDao.createLendBook(lendBook);
+		this.lendBookDao.createLendBook(lendBook2);
+		this.lendBookDao.createLendBook(lendBook3);
+		
 		this.returnBookDao.createReturnBook(returnBook);
 		
 		this.myBookDao.createMyBooks(myBooks1);
