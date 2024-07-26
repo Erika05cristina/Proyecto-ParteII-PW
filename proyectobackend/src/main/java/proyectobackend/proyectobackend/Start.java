@@ -2,12 +2,14 @@ package proyectobackend.proyectobackend;
 
 import Dao.BookDao;
 import Dao.LendBookDAO;
+import Dao.MyBookDao;
 import Dao.ReturnBookDAO;
 import Dao.UserDao;
 import Data.ImageData;
 import Data.States;
 import Model.Book;
 import Model.LendBook;
+import Model.MyBooks;
 import Model.ReturnBook;
 import Model.User;
 import jakarta.annotation.PostConstruct;
@@ -30,6 +32,9 @@ public class Start {
 	
 	@Inject
 	private ReturnBookDAO returnBookDao;
+	
+	@Inject
+	private MyBookDao myBookDao;
 
 	@PostConstruct
 	public void init() {
@@ -39,13 +44,22 @@ public class Start {
 		
 		ReturnBook returnBook = new ReturnBook();
 		
+		MyBooks myBooks1 = new MyBooks();
+		MyBooks myBooks2 = new MyBooks();
+		MyBooks myBooks3 = new MyBooks();
+		
 		Book book = new Book();
 		Book book2 = new Book();
+		Book book3 = new Book();
 		
 		User userAdmin = new User();
 		User user = new User();	
 		User user2 = new User();
 				
+//		otro usuario
+//		my book  2 para usuario 1  y 1 para usuario 2 
+//		otro libro
+		
 		// ---- Books ----
 		book.setBoo_id(1);
 		book.setBoo_name("El perfume");
@@ -62,6 +76,14 @@ public class Start {
 		book2.setBoo_description("Harry Potter es una serie de novelas fantásticas escrita por la autora británica J. K. Rowling, en la que se describen las aventuras del joven aprendiz de magia y hechicería Harry Potter y sus amigos Hermione Granger y Ron Weasley, durante los años que pasan en el Colegio Hogwarts de Magia y Hechicería.");
 		book2.setBoo_image(ImageData.harryPotter);
 		book2.setBoo_state(States.disponible);
+		
+		book3.setBoo_id(3);
+		book3.setBoo_name("Romeo y Julieta");
+		book3.setBoo_autor("William Shakeaspeare");
+		book3.setBoo_category("Romance");
+		book3.setBoo_description("Romeo y Julieta ​ es una tragedia del dramaturgo inglés William Shakespeare. Cuenta la historia de dos jóvenes que, a pesar de la oposición de sus familiares, rivales entre sí, deciden casarse de forma secreta");
+		book3.setBoo_image(ImageData.romeoJulieta);
+		book3.setBoo_state(States.disponible);
 		
 		// |----  Users  ----|
 		
@@ -83,6 +105,15 @@ public class Start {
 		user.setUs_image(ImageData.userBooks);
 		user.setUs_admin(false);
 		
+		user2.setUs_id(3);
+		user2.setUs_name("Sebastian");
+		user2.setUs_lastname("Calle");
+		user2.setUs_cell("09987254166");
+		user2.setUs_email("sebascalle@gmail.com");
+		user2.setUs_password("12323234343");
+		user2.setUs_image(ImageData.userBooks);
+		user2.setUs_admin(false);
+		
 		
 		// ---- Lends ----
 		
@@ -100,16 +131,51 @@ public class Start {
 		returnBook.setRetboo_category(book2.getBoo_category());
 		returnBook.setRetboo_date("10/07/2024");
 		
+		// --- My Books ---
+		myBooks1.setMyBoo_id(1);
+		myBooks1.setMyBoo_idBook(book2.getBoo_id());
+		myBooks1.setMyBoo_idUser(user2.getUs_id());
+		myBooks1.setMyBoo_inicial_date("05/07/2024");
+		myBooks1.setMyBoo_limit_date("10/07/2024");
+		myBooks1.setMyBoo_nameBook(book2.getBoo_name());
+		myBooks1.setMyBoo_nameUser(user2.getUs_name());
+		myBooks1.setMyBoo_stateBook(States.prestado);
+		
+		myBooks2.setMyBoo_id(2);
+		myBooks2.setMyBoo_idBook(book.getBoo_id());
+		myBooks2.setMyBoo_idUser(user2.getUs_id());
+		myBooks2.setMyBoo_inicial_date("05/07/2024");
+		myBooks2.setMyBoo_limit_date("30/07/2024");
+		myBooks2.setMyBoo_nameBook(book.getBoo_name());
+		myBooks2.setMyBoo_nameUser(user2.getUs_name());
+		myBooks2.setMyBoo_stateBook(States.prestado);
+		
+		myBooks3.setMyBoo_id(3);
+		myBooks3.setMyBoo_idBook(book3.getBoo_id());
+		myBooks3.setMyBoo_idUser(user.getUs_id());
+		myBooks3.setMyBoo_inicial_date("05/07/2024");
+		myBooks3.setMyBoo_limit_date("25/07/2024");
+		myBooks3.setMyBoo_nameBook(book3.getBoo_name());
+		myBooks3.setMyBoo_nameUser(user.getUs_name());
+		myBooks3.setMyBoo_stateBook(States.prestado);
+		
+		
 		// ---- Insert Data ----
 		
 		this.bookDao.createBook(book);
 		this.bookDao.createBook(book2);
+		this.bookDao.createBook(book3);
 		
 		this.userDao.createUser(userAdmin);
 		this.userDao.createUser(user);
+		this.userDao.createUser(user2);
 		
 		this.lendBookDao.createLendBook(lendBook);
 		this.returnBookDao.createReturnBook(returnBook);
+		
+		this.myBookDao.createMyBooks(myBooks1);
+		this.myBookDao.createMyBooks(myBooks2);
+		this.myBookDao.createMyBooks(myBooks3);
 		
 		
 	}
