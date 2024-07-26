@@ -118,7 +118,11 @@ public class BookDao {
 		return query.getResultList();
 	}
 	
-	
+	/**
+	 * @description Funcion para listar los usuarios de la tabla 'MyBooks'
+	 * @param idUser
+	 * @return
+	 */
 	public List<Book> listBookFromMyBook(int idUser){		
 		String jpql = "SELECT b FROM Book b, MyBooks mb " + "WHERE mb.myBoo_idBook = b.boo_id "
 				+ "AND mb.myBoo_idUser = :idUser";

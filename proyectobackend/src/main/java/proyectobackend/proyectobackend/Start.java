@@ -41,6 +41,8 @@ public class Start {
 		System.out.println("Hola mundo");
 
 		LendBook lendBook = new LendBook();
+		LendBook lendBook2 = new LendBook();
+		LendBook lendBook3 = new LendBook();
 		
 		ReturnBook returnBook = new ReturnBook();
 		
@@ -118,11 +120,26 @@ public class Start {
 		// ---- Lends ----
 		
 		lendBook.setLenboo_id(1);
-		lendBook.setLenboo_name(book2.getBoo_name());
+		lendBook.setLenboo_nameBook(book2.getBoo_name());
 		lendBook.setLenboo_category(book2.getBoo_category());
+		lendBook.setLenboo_nameUser(user2.getUs_name());
 		lendBook.setLenboo_inicial_date("05/07/2024");
-		lendBook.setLenboo_name("10/07/2024");
-		lendBook.setLenboo_nameUser(user.getUs_name());
+		lendBook.setLenboo_limit_date("10/07/2024");
+		
+		lendBook2.setLenboo_id(2);
+		lendBook2.setLenboo_nameBook(book.getBoo_name());
+		lendBook2.setLenboo_category(book.getBoo_category());
+		lendBook2.setLenboo_nameUser(user2.getUs_name());
+		lendBook2.setLenboo_inicial_date("05/07/2024");
+		lendBook2.setLenboo_limit_date("10/07/2024");		
+		
+		lendBook3.setLenboo_id(3);
+		lendBook3.setLenboo_nameBook(book3.getBoo_name());
+		lendBook3.setLenboo_category(book3.getBoo_category());
+		lendBook3.setLenboo_nameUser(user.getUs_name());
+		lendBook3.setLenboo_inicial_date("15/07/2024");
+		lendBook3.setLenboo_limit_date("23/07/2024");
+		
 		
 		// ---- Return -----
 		returnBook.setRetboo_id(1);
@@ -145,7 +162,7 @@ public class Start {
 		myBooks2.setMyBoo_idBook(book.getBoo_id());
 		myBooks2.setMyBoo_idUser(user2.getUs_id());
 		myBooks2.setMyBoo_inicial_date("05/07/2024");
-		myBooks2.setMyBoo_limit_date("30/07/2024");
+		myBooks2.setMyBoo_limit_date("19/07/2024");
 		myBooks2.setMyBoo_nameBook(book.getBoo_name());
 		myBooks2.setMyBoo_nameUser(user2.getUs_name());
 		myBooks2.setMyBoo_stateBook(States.prestado);
@@ -154,7 +171,7 @@ public class Start {
 		myBooks3.setMyBoo_idBook(book3.getBoo_id());
 		myBooks3.setMyBoo_idUser(user.getUs_id());
 		myBooks3.setMyBoo_inicial_date("05/07/2024");
-		myBooks3.setMyBoo_limit_date("25/07/2024");
+		myBooks3.setMyBoo_limit_date("13/07/2024");
 		myBooks3.setMyBoo_nameBook(book3.getBoo_name());
 		myBooks3.setMyBoo_nameUser(user.getUs_name());
 		myBooks3.setMyBoo_stateBook(States.prestado);

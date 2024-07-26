@@ -18,7 +18,7 @@ public class LendBook {
 	private int lenboo_id;
 	
 	@Column (name = "lenboo_name")
-	private String lenboo_name;
+	private String lenboo_nameBook;
 	
 	@Column (name = "lenboo_category")
 	private String lenboo_category;
@@ -40,12 +40,12 @@ public class LendBook {
 		this.lenboo_id = lenboo_id;
 	}
 
-	public String getLenboo_name() {
-		return lenboo_name;
+	public String getLenboo_nameBook() {
+		return lenboo_nameBook;
 	}
 
-	public void setLenboo_name(String lenboo_name) {
-		this.lenboo_name = lenboo_name;
+	public void setLenboo_nameBook(String lenboo_nameBook) {
+		this.lenboo_nameBook = lenboo_nameBook;
 	}
 
 	public String getLenboo_category() {
@@ -79,6 +79,8 @@ public class LendBook {
 	public void setLenboo_limit_date(String lenboo_limit_date) {
 		this.lenboo_limit_date = lenboo_limit_date;
 	}
+
+	
 
 	
 }
