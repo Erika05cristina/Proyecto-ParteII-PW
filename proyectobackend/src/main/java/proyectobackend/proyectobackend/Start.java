@@ -162,7 +162,7 @@ public class Start {
 		
 		// ---- Return -----
 		// returnBook.setRetboo_id(1);
-		returnBook.setRetboo_name(book2.getBoo_name());
+		returnBook.setRetboo_nameBook(book2.getBoo_name());
 		returnBook.setRetboo_nameUser(user.getUs_name());
 		returnBook.setRetboo_category(book2.getBoo_category());
 		returnBook.setRetboo_date("10/07/2024");

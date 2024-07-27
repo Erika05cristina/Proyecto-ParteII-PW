@@ -16,11 +16,17 @@ public class ReturnBook {
 	@Column (name = " retboo_id")
 	private int retboo_id;
 	
-	@Column (name = " retboo_name")
-	private String retboo_name;
+	@Column (name = " retboo_idBook")
+	private int retboo_idBook;
+	
+	@Column (name = " retboo_nameBook")
+	private String retboo_nameBook;
 	
 	@Column (name = " retboo_category")
 	private String retboo_category;
+	
+	@Column (name = " retboo_idUser")
+	private int retboo_idUser;
 	
 	@Column (name = " retboo_nameUser")
 	private String retboo_nameUser;
@@ -36,12 +42,14 @@ public class ReturnBook {
 		this.retboo_id = retboo_id;
 	}
 
-	public String getRetboo_name() {
-		return retboo_name;
+	
+
+	public String getRetboo_nameBook() {
+		return retboo_nameBook;
 	}
 
-	public void setRetboo_name(String retboo_name) {
-		this.retboo_name = retboo_name;
+	public void setRetboo_nameBook(String retboo_nameBook) {
+		this.retboo_nameBook = retboo_nameBook;
 	}
 
 	public String getRetboo_category() {
