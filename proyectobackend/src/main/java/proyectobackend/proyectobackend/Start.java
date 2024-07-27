@@ -120,28 +120,28 @@ public class Start {
 		// ---- Lends ----
 		
 		//lendBook.setLenboo_id(1);
-		lendBook.setLenboo_idBook(book2.getBoo_id());
+		lendBook.setLenboo_idBook(2);
 		lendBook.setLenboo_nameBook(book2.getBoo_name());
 		lendBook.setLenboo_category(book2.getBoo_category());
-		lendBook.setLenboo_idUser(user2.getUs_id());
+		lendBook.setLenboo_idUser(3);
 		lendBook.setLenboo_nameUser(user2.getUs_name());
 		lendBook.setLenboo_inicial_date("05/07/2024");
 		lendBook.setLenboo_limit_date("10/07/2024");
 		
 		//lendBook2.setLenboo_id(2);
-		lendBook.setLenboo_idBook(book.getBoo_id());
+		lendBook.setLenboo_idBook(1);
 		lendBook2.setLenboo_nameBook(book.getBoo_name());
 		lendBook2.setLenboo_category(book.getBoo_category());
-		lendBook.setLenboo_idUser(user2.getUs_id());
+		lendBook.setLenboo_idUser(3);
 		lendBook2.setLenboo_nameUser(user2.getUs_name());
 		lendBook2.setLenboo_inicial_date("05/07/2024");
 		lendBook2.setLenboo_limit_date("10/07/2024");		
 		
 		//lendBook3.setLenboo_id(3);
-		lendBook.setLenboo_idBook(book3.getBoo_id());
+		lendBook.setLenboo_idBook(3);
 		lendBook3.setLenboo_nameBook(book3.getBoo_name());
 		lendBook3.setLenboo_category(book3.getBoo_category());
-		lendBook.setLenboo_idUser(user.getUs_id());
+		lendBook.setLenboo_idUser(2);
 		lendBook3.setLenboo_nameUser(user.getUs_name());
 		lendBook3.setLenboo_inicial_date("15/07/2024");
 		lendBook3.setLenboo_limit_date("23/07/2024");
@@ -156,8 +156,8 @@ public class Start {
 		
 		// --- My Books ---
 		//myBooks1.setMyBoo_id(1);
-		myBooks1.setMyBoo_idBook(book2.getBoo_id());
-		myBooks1.setMyBoo_idUser(user2.getUs_id());
+		myBooks1.setMyBoo_idBook(2);
+		myBooks1.setMyBoo_idUser(3);
 		myBooks1.setMyBoo_inicial_date("05/07/2024");
 		myBooks1.setMyBoo_limit_date("10/07/2024");
 		myBooks1.setMyBoo_nameBook(book2.getBoo_name());
@@ -165,8 +165,8 @@ public class Start {
 		myBooks1.setMyBoo_stateBook(States.prestado);
 		
 		//myBooks2.setMyBoo_id(2);
-		myBooks2.setMyBoo_idBook(book.getBoo_id());
-		myBooks2.setMyBoo_idUser(user2.getUs_id());
+		myBooks2.setMyBoo_idBook(1);
+		myBooks2.setMyBoo_idUser(3);
 		myBooks2.setMyBoo_inicial_date("05/07/2024");
 		myBooks2.setMyBoo_limit_date("19/07/2024");
 		myBooks2.setMyBoo_nameBook(book.getBoo_name());
@@ -174,8 +174,8 @@ public class Start {
 		myBooks2.setMyBoo_stateBook(States.prestado);
 		
 		//myBooks3.setMyBoo_id(3);
-		myBooks3.setMyBoo_idBook(book3.getBoo_id());
-		myBooks3.setMyBoo_idUser(user.getUs_id());
+		myBooks3.setMyBoo_idBook(3);
+		myBooks3.setMyBoo_idUser(2);
 		myBooks3.setMyBoo_inicial_date("05/07/2024");
 		myBooks3.setMyBoo_limit_date("13/07/2024");
 		myBooks3.setMyBoo_nameBook(book3.getBoo_name());
