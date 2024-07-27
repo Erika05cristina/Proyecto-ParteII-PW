@@ -35,12 +35,7 @@ public class GestionMyBook {
 		return this.myBookDao.listAllMyBooks();
 	}
 	
-	public List<MyBooks> listMyBooks(int idUser){
-		return this.myBookDao.listMyBooks(idUser);
-	}
-	
-	
-	
+
 	
 	public MyBooks searchMyBook(int id) throws Exception{
 		MyBooks bookFound = this.myBookDao.searchMyBooks(id);
@@ -58,6 +53,12 @@ public class GestionMyBook {
 		myBookDao.deleteMyBooks(id);
 		
 	}
+
+	public List<MyBooks> listMyBooks(int myBoo_idUser){
+		return this.myBookDao.listMyBooks(myBoo_idUser);
+	}
 	
-	
+	 public List<MyBooks> listOverdueBooks(int idUser) {
+	        return this.myBookDao.listOverdueBooks(idUser);
+	    }
 }

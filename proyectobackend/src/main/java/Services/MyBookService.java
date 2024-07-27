@@ -72,18 +72,6 @@ public class MyBookService {
 		}
 	}
 
-	@GET
-	@Path("mb/{idUser}")
-	@Produces("application/json")
-	public List<MyBooks> listBooks(@PathParam("idUser") int idUser) {
-		try {
-
-			return this.gestionMyBook.listMyBooks(idUser);
-		} catch (Exception e) {
-			// TODO: handle exception
-			return null;
-		}
-	}
 
 	@DELETE
 	@Path("/{codigo}")
@@ -109,5 +97,45 @@ public class MyBookService {
 			return Response.status(503).entity(new Answord(Answord.ERROR, "Error en BD")).build();
 		}
 	}
+	
 
+	@GET
+	@Path("mb/{idUser}")
+	@Produces("application/json")
+	public List<MyBooks> listBooks(@PathParam("idUser") int idUser) {
+		try {
+
+			return this.gestionMyBook.listMyBooks(idUser);
+		} catch (Exception e) {
+			// TODO: handle exception
+			return null;
+		}
+	}
+
+	@GET
+	@Path("overdue/{idUser}")
+	@Produces("application/json")
+	public List<MyBooks> getOverdueBooks(@PathParam("idUser") int idUser) {
+		try {
+
+			return this.gestionMyBook.listOverdueBooks(idUser);
+		} catch (Exception e) {
+			// TODO: handle exception
+			return null;
+		}
+	}
+	
+	
+//	@GET
+//    @Path("/overdue/{userId}")
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public Response getOverdueBooks(@PathParam("userId") int userId) {
+//        try {
+//            List<MyBooks> overdueBooks = gestionMyBook.listOverdueBooks(userId);
+//            return Response.ok(overdueBooks).build();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return Response.status(503).entity("Error en BD").build();
+//        }
+//    }
 }

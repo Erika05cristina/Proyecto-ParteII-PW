@@ -70,4 +70,17 @@ public class MyBookDao {
 		return query.getResultList();
 	}
 
+//	  public List<MyBooks> listOverdueBooks() {
+//	        String jpql = "SELECT mb FROM MyBooks mb WHERE FUNCTION('TO_DATE', mb.myBoo_limit_date, 'DD/MM/YYYY') <= CURRENT_DATE";
+//	        Query query = em.createQuery(jpql, MyBooks.class);
+//	        return query.getResultList();
+//	    }
+//	  
+	  public List<MyBooks> listOverdueBooks(int idUser) {
+	        String jpql ="SELECT mb FROM MyBooks mb WHERE FUNCTION('TO_DATE', mb.myBoo_limit_date, 'DD/MM/YYYY') <= CURRENT_DATE AND myBoo_idUser = :idUser";
+	        Query query = em.createQuery(jpql, MyBooks.class);
+	        query.setParameter("idUser", idUser);
+	        return query.getResultList();
+	    }
+
 }

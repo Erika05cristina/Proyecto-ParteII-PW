@@ -14,10 +14,6 @@ public class GestionLendBook {
 	@Inject
 	private LendBookDAO lendBookDAO;
 	
-	 public List<LendBook> getPendingReturns() {
-	        return lendBookDAO.listPendingReturns();
-	    }
-
 	public LendBook getLendBook(int id) throws Exception {
 		LendBook lendBookFound = this.lendBookDAO.searchLendBook(id);
 
