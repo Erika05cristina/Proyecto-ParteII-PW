@@ -42,7 +42,13 @@ public class ReturnBook {
 		this.retboo_id = retboo_id;
 	}
 
-	
+	public int getRetboo_idBook() {
+		return retboo_idBook;
+	}
+
+	public void setRetboo_idBook(int retboo_idBook) {
+		this.retboo_idBook = retboo_idBook;
+	}
 
 	public String getRetboo_nameBook() {
 		return retboo_nameBook;
@@ -60,6 +66,14 @@ public class ReturnBook {
 		this.retboo_category = retboo_category;
 	}
 
+	public int getRetboo_idUser() {
+		return retboo_idUser;
+	}
+
+	public void setRetboo_idUser(int retboo_idUser) {
+		this.retboo_idUser = retboo_idUser;
+	}
+
 	public String getRetboo_nameUser() {
 		return retboo_nameUser;
 	}
@@ -75,6 +89,8 @@ public class ReturnBook {
 	public void setRetboo_date(String retboo_date) {
 		this.retboo_date = retboo_date;
 	}
+
+	
 	
 	
 	
