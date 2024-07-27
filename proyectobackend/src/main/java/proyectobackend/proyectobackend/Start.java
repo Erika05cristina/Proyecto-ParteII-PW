@@ -63,7 +63,7 @@ public class Start {
 //		otro libro
 		
 		// ---- Books ----
-		book.setBoo_id(1);
+		//book.setBoo_id(1);
 		book.setBoo_name("El perfume");
 		book.setBoo_autor("Patrick Suskind");
 		book.setBoo_category("Tragedia");
@@ -71,7 +71,7 @@ public class Start {
 		book.setBoo_image(ImageData.perfume);
 		book.setBoo_state(States.disponible);
 		
-		book2.setBoo_id(2);
+		//book2.setBoo_id(2);
 		book2.setBoo_name("Harry Potter");
 		book2.setBoo_autor("J. K. Rowling");
 		book2.setBoo_category("Ficcion");
@@ -79,7 +79,7 @@ public class Start {
 		book2.setBoo_image(ImageData.harryPotter);
 		book2.setBoo_state(States.disponible);
 		
-		book3.setBoo_id(3);
+		//book3.setBoo_id(3);
 		book3.setBoo_name("Romeo y Julieta");
 		book3.setBoo_autor("William Shakeaspeare");
 		book3.setBoo_category("Romance");
@@ -89,7 +89,7 @@ public class Start {
 		
 		// |----  Users  ----|
 		
-		userAdmin.setUs_id(1);
+		//userAdmin.setUs_id(1);
 		userAdmin.setUs_name("Erika");
 		userAdmin.setUs_lastname("Villa");
 		userAdmin.setUs_cell("987452136");
@@ -98,7 +98,7 @@ public class Start {
 		userAdmin.setUs_image(ImageData.userArt);
 		userAdmin.setUs_admin(true);
 		
-		user.setUs_id(2);
+		//user.setUs_id(2);
 		user.setUs_name("Jackson");
 		user.setUs_lastname("Pearson");
 		user.setUs_cell("0989621136");
@@ -107,7 +107,7 @@ public class Start {
 		user.setUs_image(ImageData.userBooks);
 		user.setUs_admin(false);
 		
-		user2.setUs_id(3);
+		//user2.setUs_id(3);
 		user2.setUs_name("Sebastian");
 		user2.setUs_lastname("Calle");
 		user2.setUs_cell("09987254166");
@@ -148,7 +148,7 @@ public class Start {
 		
 		
 		// ---- Return -----
-		returnBook.setRetboo_id(1);
+		//returnBook.setRetboo_id(1);
 		returnBook.setRetboo_name(book2.getBoo_name());
 		returnBook.setRetboo_nameUser(user.getUs_name());
 		returnBook.setRetboo_category(book2.getBoo_category());
