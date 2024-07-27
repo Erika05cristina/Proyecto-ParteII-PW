@@ -2,34 +2,37 @@ package Model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 /**
  * @description Historial de los libros prestados
-*/
+ */
 
 @Entity
-@Table (name="Bib_LendBook")
+@Table(name = "Bib_LendBook")
 public class LendBook {
-	
+
 	@Id
-	@Column (name = "lenboo_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "lenboo_id")
 	private int lenboo_id;
-	
-	@Column (name = "lenboo_name")
+
+	@Column(name = "lenboo_name")
 	private String lenboo_nameBook;
-	
-	@Column (name = "lenboo_category")
+
+	@Column(name = "lenboo_category")
 	private String lenboo_category;
-	
-	@Column (name = "lenboo_nameUser")
+
+	@Column(name = "lenboo_nameUser")
 	private String lenboo_nameUser;
-	
-	@Column (name = "lenboo_inicial_date")
+
+	@Column(name = "lenboo_inicial_date")
 	private String lenboo_inicial_date;
-	
-	@Column (name = "lenboo_limit_date")
+
+	@Column(name = "lenboo_limit_date")
 	private String lenboo_limit_date;
 
 	public int getLenboo_id() {
@@ -80,7 +83,4 @@ public class LendBook {
 		this.lenboo_limit_date = lenboo_limit_date;
 	}
 
-	
-
-	
 }

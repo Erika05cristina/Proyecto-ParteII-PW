@@ -25,28 +25,29 @@ public class MyBookService {
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response createBook(MyBooks book) {
 		try {
+			/*
 			if (book.getMyBoo_id() == 0)
-				return Response.status(400).entity(new Answord(Answord.EMPTY_FIELDS, Answord.MESSAGE_VALIDATION_ERROR))
+				return Response.status(400).entity(new Answord(Answord.EMPTY_FIELDS, Answord.MESSAGE_VALIDATION_ERROR + " id"))
 						.build();
-
+*/
 			if (book.getMyBoo_idBook() == 0)
-				return Response.status(400).entity(new Answord(Answord.EMPTY_FIELDS, Answord.MESSAGE_VALIDATION_ERROR))
+				return Response.status(400).entity(new Answord(Answord.EMPTY_FIELDS, Answord.MESSAGE_VALIDATION_ERROR + " idBook"))
 						.build();
 
 			if (book.getMyBoo_idUser() == 0)
-				return Response.status(400).entity(new Answord(Answord.EMPTY_FIELDS, Answord.MESSAGE_VALIDATION_ERROR))
+				return Response.status(400).entity(new Answord(Answord.EMPTY_FIELDS, Answord.MESSAGE_VALIDATION_ERROR + " idUser"))
 						.build();
 
 			if (book.getMyBoo_nameBook() == null)
-				return Response.status(400).entity(new Answord(Answord.EMPTY_FIELDS, Answord.MESSAGE_VALIDATION_ERROR))
+				return Response.status(400).entity(new Answord(Answord.EMPTY_FIELDS, Answord.MESSAGE_VALIDATION_ERROR + " nameBook"))
 						.build();
 
 			if (book.getMyBoo_nameUser() == null)
-				return Response.status(400).entity(new Answord(Answord.EMPTY_FIELDS, Answord.MESSAGE_VALIDATION_ERROR))
+				return Response.status(400).entity(new Answord(Answord.EMPTY_FIELDS, Answord.MESSAGE_VALIDATION_ERROR + " nameUser"))
 						.build();
 
 			if (book.getMyBoo_stateBook() == null || "Disponible".equals(book.getMyBoo_stateBook())) {
-				return Response.status(400).entity(new Answord(Answord.EMPTY_FIELDS, Answord.MESSAGE_VALIDATION_ERROR))
+				return Response.status(400).entity(new Answord(Answord.EMPTY_FIELDS, Answord.MESSAGE_VALIDATION_ERROR + " stateBook"))
 						.build();
 			}
 
