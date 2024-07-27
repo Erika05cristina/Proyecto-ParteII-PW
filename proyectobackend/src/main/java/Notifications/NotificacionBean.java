@@ -24,7 +24,6 @@ public class NotificacionBean {
     @PostConstruct
     public void init() {
         try {
-            // Suponiendo que el ID del usuario se obtiene de alguna manera
             int userId = getCurrentUserId();
             overdueBooks = myBookService.getOverdueBooks(userId);
         } catch (Exception e) {
@@ -40,6 +39,6 @@ public class NotificacionBean {
         /**
          * Como se obtiene el ID del usuario ??
          */
-        return 2; // Placeholder
+        return 2; 
     }
 }
