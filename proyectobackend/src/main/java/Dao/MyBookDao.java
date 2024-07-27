@@ -60,6 +60,11 @@ public class MyBookDao {
 		return query.getResultList();
 	}
 
+	/**
+	 * @description Lista los mybooks de un solo usuario
+	 * @param idUser
+	 * @return
+	 */
 	public List<MyBooks> listMyBooks(int idUser) {
 		String jpql = "SELECT mb FROM MyBooks mb, Book b " + "WHERE mb.myBoo_idBook = b.boo_id "
 				+ "AND mb.myBoo_idUser = :idUser";

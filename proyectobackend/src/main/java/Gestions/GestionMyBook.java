@@ -54,6 +54,11 @@ public class GestionMyBook {
 		
 	}
 
+	/**
+	 * @description Lista los mybooks de un solo usuario
+	 * @param myBoo_idUser
+	 * @return
+	 */
 	public List<MyBooks> listMyBooks(int myBoo_idUser){
 		return this.myBookDao.listMyBooks(myBoo_idUser);
 	}
