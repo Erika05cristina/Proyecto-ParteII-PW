@@ -68,5 +68,12 @@ public class LendBookService {
             return Response.status(503).entity(new Answord(Answord.ERROR, "Error en BD")).build();
         }
     }
+    
+    @GET
+    @Path("/read-books")
+    @Produces("application/json")
+    public List<Object[]> getMostReadBooksByMonth() {
+        return this.gestionLendBook.getMostReadBooksByMonth();
+    }
  
 }
