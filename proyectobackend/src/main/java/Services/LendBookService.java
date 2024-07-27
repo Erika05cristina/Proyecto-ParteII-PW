@@ -22,13 +22,6 @@ public class LendBookService {
     private GestionLendBook gestionLendBook;
     
 
-    @GET
-    @Path("/pending")
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<LendBook> getPendingReturns() {
-        return gestionLendBook.getPendingReturns();
-    }
-
     @POST
     @Produces("application/json")
     @Consumes(MediaType.APPLICATION_JSON)

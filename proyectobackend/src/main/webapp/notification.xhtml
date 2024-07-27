@@ -1,99 +1,126 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
-    <title>Libros Atrasados</title>
-    <style>
-        /* Estilos generales */
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom, #0D1039, #1B1E61);
-            color: #fff;
-            margin: 0;
-            padding: 0;
-        }
+	<title>Libros Atrasados</title>
+	<style>
 
-        .header-text {
-            font-size: 1.2em;
-            margin-bottom: 10px;
-        }
+/* Reicio para que 1rem = 10px*/
+html {
+	font-size: 62.5%;
+	box-sizing: border-box;
+	scroll-snap-type: y mandatory;
+	height: 100%;
+	background-image: linear-gradient(to top, #0D1039 0%, #1B1E61 100%);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
 
-        .no-books-message {
-            font-size: 1em;
-            margin-bottom: 10px;
-        }
+*, *::before, *::after {
+	box-sizing: inherit;
+}
 
-        h\:outputText {
-            margin: 5px 0;
-        }
+body {
+	font-size: 16px;
+	padding: 0;
+	margin: 0;
+	background-color: $azul_oscuro;
+}
 
-        /* Tabla de libros atrasados */
-        h\:dataTable {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+h1, h2, h3, h4, h5, h6, p, a, fieldset, label {
+	font-family: $ fuente;
+	color: $blanco;
+}
+/* Estilos generales */
+body {
+	font-family: Arial, sans-serif;
+	color: #fff;
+	margin: 0;
+	padding: 0;
+}
 
-        h\:column {
-            padding: 10px;
-            border: 1px solid #242275;
-            text-align: left;
-        }
+.header-text {
+	font-size: 1.2em;
+	margin-bottom: 10px;
+}
 
-        f\:facet[name="header"] {
-            background-color: #2F358B;
-            color: #fff;
-            font-weight: bold;
-            text-align: center;
-        }
+.no-books-message {
+	font-size: 1em;
+	margin-bottom: 10px;
+}
 
-        /* Estilos responsivos */
-        @media (max-width: 600px) {
-            h\:dataTable, h\:column, f\:facet {
-                display: block;
-                width: 100%;
-            }
+h\:outputText {
+	margin: 5px 0;
+}
 
-            h\:column {
-                border: none;
-                padding: 10px 0;
-                border-bottom: 1px solid #242275;
-                display: flex;
-                justify-content: space-between;
-            }
+/* Tabla de libros atrasados */
+h\:dataTable {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 20px 0;
+}
 
-            f\:facet[name="header"] {
-                display: none;
-            }
+h\:column {
+	padding: 10px;
+	border: 1px solid #242275;
+	text-align: left;
+}
 
-            h\:outputText {
-                display: block;
-                width: 100%;
-                text-align: left;
-            }
-        }
-    </style>
+f\:facet[name="header"] {
+	background-color: #2F358B;
+	color: #fff;
+	font-weight: bold;
+	text-align: center;
+}
+
+/* Estilos responsivos */
+@media ( max-width : 600px) {
+	h\:dataTable, h\:column, f\:facet {
+		display: block;
+		width: 100%;
+	}
+	h\:column {
+		border: none;
+		padding: 10px 0;
+		border-bottom: 1px solid #242275;
+		display: flex;
+		justify-content: space-between;
+	}
+	f\:facet[name="header"] {
+		display: none;
+	}
+	h\:outputText {
+		display: block;
+		width: 100%;
+		text-align: left;
+	}
+}
+</style>
 </h:head>
 <h:body>
-    <h:form>
-        <h:panelGroup rendered="#{notificacionBean.overdueBooks != null and notificacionBean.overdueBooks.size() > 0}">
-            <h:outputText value="Tienes los siguientes libros atrasados:" styleClass="header-text"/>
-            <h:dataTable value="#{notificacionBean.overdueBooks}" var="book">
-                <h:column>
-                    <f:facet name="header">Nombre del Libro</f:facet>
-                    <h:outputText value="#{book.myBoo_nameBook}"/>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">Fecha Límite</f:facet>
-                    <h:outputText value="#{book.myBoo_limit_date}"/> 
-                </h:column>
-            </h:dataTable>
-        </h:panelGroup>
-        <h:panelGroup rendered="#{notificacionBean.overdueBooks == null or notificacionBean.overdueBooks.size() == 0}">
-            <h:outputText value="No tienes libros atrasados." styleClass="no-books-message"/>
-        </h:panelGroup>
-    </h:form>
+	<h:form>
+		<h:panelGroup
+			rendered="#{notificacionBean.overdueBooks != null and notificacionBean.overdueBooks.size() > 0}">
+			<h:outputText value="Tienes los siguientes libros atrasados:"
+				styleClass="header-text" />
+			<h:dataTable value="#{notificacionBean.overdueBooks}" var="book">
+				<h:column>
+					<f:facet name="header">Nombre del Libro</f:facet>
+					<h:outputText value="#{book.myBoo_nameBook}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Fecha Límite</f:facet>
+					<h:outputText value="#{book.myBoo_limit_date}" />
+				</h:column>
+			</h:dataTable>
+		</h:panelGroup>
+		<h:panelGroup
+			rendered="#{notificacionBean.overdueBooks == null or notificacionBean.overdueBooks.size() == 0}">
+			<h:outputText value="No tienes libros atrasados."
+				styleClass="no-books-message" />
+		</h:panelGroup>
+	</h:form>
 </h:body>
 </html>
