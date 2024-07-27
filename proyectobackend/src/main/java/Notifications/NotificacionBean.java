@@ -39,6 +39,6 @@ public class NotificacionBean {
         /**
          * Como se obtiene el ID del usuario ??
          */
-        return 2; 
+        return 3; 
     }
 }

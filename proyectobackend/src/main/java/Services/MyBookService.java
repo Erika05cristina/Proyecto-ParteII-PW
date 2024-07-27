@@ -125,17 +125,4 @@ public class MyBookService {
 		}
 	}
 	
-	
-//	@GET
-//    @Path("/overdue/{userId}")
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public Response getOverdueBooks(@PathParam("userId") int userId) {
-//        try {
-//            List<MyBooks> overdueBooks = gestionMyBook.listOverdueBooks(userId);
-//            return Response.ok(overdueBooks).build();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return Response.status(503).entity("Error en BD").build();
-//        }
-//    }
 }
