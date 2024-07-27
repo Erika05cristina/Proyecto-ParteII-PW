@@ -47,6 +47,21 @@ public class LendBookDAO {
 		return query.getResultList();
 	}
 	
+	/**
+	 * @describe Top 5 libros mas leidos para el reporte
+	 * 
+	 */
+	    public List<Object[]> getMostReadBooksByMonth() {
+	        String jpql = "SELECT l.lenboo_nameBook, COUNT(l.lenboo_idBook) " +
+	                      "FROM LendBook l " +
+	                      "GROUP BY l.lenboo_nameBook " +
+	                      "ORDER BY COUNT(l.lenboo_idBook) DESC";
+	        TypedQuery<Object[]> query = em.createQuery(jpql, Object[].class);
+	        query.setMaxResults(5);
+	        return query.getResultList();
+	    }
+	
+	
 	public List<LendBook> listPendingReturns() {
         String jpql = "SELECT lb FROM LendBook lb WHERE lb.returnDate IS NULL";
         TypedQuery<LendBook> query = em.createQuery(jpql, LendBook.class);
