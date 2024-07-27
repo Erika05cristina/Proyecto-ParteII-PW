@@ -39,6 +39,10 @@ body {
 	color: #fff;
 	margin: 0;
 	padding: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .header-text {
@@ -54,12 +58,22 @@ body {
 h\:outputText {
 	margin: 5px 0;
 }
-
 /* Tabla de libros atrasados */
-h\:dataTable {
-	width: 100%;
+.table--books{
 	border-collapse: collapse;
-	margin: 20px 0;
+	background: #463DB2;
+	padding: 30px;
+	width: 80%;
+	height: 95%;
+	margin: 2.5rem auto;
+	
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.table--books:hover {
+	box-shadow: 13px 20px 17px 3px rgba(0, 0, 0, .53);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	transform: scale(1.0625);
 }
 
 h\:column {
@@ -77,7 +91,7 @@ f\:facet[name="header"] {
 
 /* Estilos responsivos */
 @media ( max-width : 600px) {
-	h\:dataTable, h\:column, f\:facet {
+	h\:dataTable ,h\:column, f\:facet {
 		display: block;
 		width: 100%;
 	}
@@ -101,11 +115,11 @@ f\:facet[name="header"] {
 </h:head>
 <h:body>
 	<h:form>
-		<h:panelGroup
+		<h:panelGroup 
 			rendered="#{notificacionBean.overdueBooks != null and notificacionBean.overdueBooks.size() > 0}">
 			<h:outputText value="Tienes los siguientes libros atrasados:"
 				styleClass="header-text" />
-			<h:dataTable value="#{notificacionBean.overdueBooks}" var="book">
+			<h:dataTable styleClass="table--books" value="#{notificacionBean.overdueBooks}" var="book">
 				<h:column>
 					<f:facet name="header">Nombre del Libro</f:facet>
 					<h:outputText value="#{book.myBoo_nameBook}" />

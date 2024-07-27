@@ -8,6 +8,7 @@ import Model.MyBooks;
 import Services.MyBookService;
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.RequestScoped;
+import jakarta.faces.context.FacesContext;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 
@@ -36,9 +37,8 @@ public class NotificacionBean {
     }
 
     private int getCurrentUserId() {
-        /**
-         * Como se obtiene el ID del usuario ??
-         */
-        return 3; 
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        String userIdParam = facesContext.getExternalContext().getRequestParameterMap().get("userId");
+        return Integer.parseInt(userIdParam);
     }
 }
