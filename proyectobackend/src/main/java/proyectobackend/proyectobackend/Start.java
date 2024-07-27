@@ -120,22 +120,28 @@ public class Start {
 		// ---- Lends ----
 		
 		//lendBook.setLenboo_id(1);
+		lendBook.setLenboo_idBook(book2.getBoo_id());
 		lendBook.setLenboo_nameBook(book2.getBoo_name());
 		lendBook.setLenboo_category(book2.getBoo_category());
+		lendBook.setLenboo_idUser(user2.getUs_id());
 		lendBook.setLenboo_nameUser(user2.getUs_name());
 		lendBook.setLenboo_inicial_date("05/07/2024");
 		lendBook.setLenboo_limit_date("10/07/2024");
 		
 		//lendBook2.setLenboo_id(2);
+		lendBook.setLenboo_idBook(book.getBoo_id());
 		lendBook2.setLenboo_nameBook(book.getBoo_name());
 		lendBook2.setLenboo_category(book.getBoo_category());
+		lendBook.setLenboo_idUser(user2.getUs_id());
 		lendBook2.setLenboo_nameUser(user2.getUs_name());
 		lendBook2.setLenboo_inicial_date("05/07/2024");
 		lendBook2.setLenboo_limit_date("10/07/2024");		
 		
 		//lendBook3.setLenboo_id(3);
+		lendBook.setLenboo_idBook(book3.getBoo_id());
 		lendBook3.setLenboo_nameBook(book3.getBoo_name());
 		lendBook3.setLenboo_category(book3.getBoo_category());
+		lendBook.setLenboo_idUser(user.getUs_id());
 		lendBook3.setLenboo_nameUser(user.getUs_name());
 		lendBook3.setLenboo_inicial_date("15/07/2024");
 		lendBook3.setLenboo_limit_date("23/07/2024");

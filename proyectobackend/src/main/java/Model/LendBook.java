@@ -19,13 +19,19 @@ public class LendBook {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "lenboo_id")
 	private int lenboo_id;
+	
+	@Column(name = "lenboo_category")
+	private String lenboo_category;
+	
+	@Column(name = "lenboo_idBook")
+	private int lenboo_idBook;
 
 	@Column(name = "lenboo_name")
 	private String lenboo_nameBook;
-
-	@Column(name = "lenboo_category")
-	private String lenboo_category;
-
+	
+	@Column(name = "lenboo_idUser")
+	private int lenboo_idUser;
+	
 	@Column(name = "lenboo_nameUser")
 	private String lenboo_nameUser;
 
@@ -34,6 +40,7 @@ public class LendBook {
 
 	@Column(name = "lenboo_limit_date")
 	private String lenboo_limit_date;
+
 
 	public int getLenboo_id() {
 		return lenboo_id;
@@ -83,4 +90,21 @@ public class LendBook {
 		this.lenboo_limit_date = lenboo_limit_date;
 	}
 
+	public int getLenboo_idBook() {
+		return lenboo_idBook;
+	}
+
+	public void setLenboo_idBook(int lenboo_idBook) {
+		this.lenboo_idBook = lenboo_idBook;
+	}
+
+	public int getLenboo_idUser() {
+		return lenboo_idUser;
+	}
+
+	public void setLenboo_idUser(int lenboo_idUser) {
+		this.lenboo_idUser = lenboo_idUser;
+	}
+
+	
 }
