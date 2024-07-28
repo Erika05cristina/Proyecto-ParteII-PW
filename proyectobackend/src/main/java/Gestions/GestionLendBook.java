@@ -31,6 +31,7 @@ public class GestionLendBook {
 
 		this.lendBookDAO.createLendBook(lendBook);
 	}
+	
 
 	public void updateLendBook(LendBook lendBook) throws Exception {
 		if (lendBook == null)
@@ -38,11 +39,21 @@ public class GestionLendBook {
 
 		this.lendBookDAO.updateLendBook(lendBook);
 	}
+	
+	
+	
+	public void deleteLendBook(int id) throws Exception {
+		if(id == 0) throw new Exception("Id no valido");
+		
+		this.lendBookDAO.deleteLendBook(id);
+	}
+	
 
 	public List<LendBook> listLendBooks() {
 		return this.lendBookDAO.listLendBook();
 	}
 
+	
 	public LendBook searchLendBook(int id) throws Exception {
 		LendBook lendBookFound = this.lendBookDAO.searchLendBook(id);
 
@@ -50,6 +61,17 @@ public class GestionLendBook {
 			throw new Exception("Libro prestado no encontrado");
 		return lendBookFound;
 	} 
+	
+	
+	public LendBook searchLendBookByIdBook(int idBook, int idUser) throws Exception {
+		LendBook lendBookFound = this.lendBookDAO.getLendBookByIdBook(idBook, idUser);
+		
+		if(lendBookFound == null) throw new Exception("Libro no econtrado");
+		
+		return lendBookFound;
+	}
+	
+	
 	public List<Object[]> getMostReadBooksByMonth() {
         return (List<Object[]>) this.lendBookDAO.getMostReadBooksByMonth();
     }
