@@ -89,5 +89,15 @@ public class GestionLendBook {
 
 	    return mostReadBooks;
 	}
+	
+	 public List<Object[]> getClientOfTheMonth() {
+	        int currentMonth = getMonth();
+	        return lendBookDAO.getClientOfTheMonth(currentMonth);
+	    }
+
+	private int getMonth() {
+		return java.time.LocalDate.now().getMonthValue(); // Devuelve el mes actual como número entero
+	}
+
 
 }

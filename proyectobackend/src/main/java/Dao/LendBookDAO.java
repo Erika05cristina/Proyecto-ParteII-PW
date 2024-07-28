@@ -90,5 +90,28 @@ public class LendBookDAO {
 		return (LendBook) query.getSingleResult();
 
 	}
+	
+	/**
+	 * @describe El cliente del mes para el reporte
+	 * 
+	 */
+	public List<Object[]> getClientOfTheMonth(int currentMonth) {
+		  String sql = "SELECT l.lenboo_idUser, l.lenboo_nameUser, COUNT(l.lenboo_idUser) AS book_count " +
+	                 "FROM Bib_LendBook l " +
+	                 "WHERE EXTRACT(MONTH FROM TO_DATE(l.lenboo_inicial_date, 'DD-MM-YYYY')) = :currentMonth " +
+	                 "GROUP BY l.lenboo_idUser, l.lenboo_nameUser " +
+	                 "ORDER BY book_count DESC";
+	    Query query = em.createNativeQuery(sql);
+	    query.setParameter("currentMonth", currentMonth);
+	    query.setMaxResults(1);
+	    return query.getResultList();
+  }
+
+
+	
+
+	private int getMonth() {
+		return java.time.LocalDate.now().getMonthValue(); // Devuelve el mes actual como número entero
+	}
 
 }
