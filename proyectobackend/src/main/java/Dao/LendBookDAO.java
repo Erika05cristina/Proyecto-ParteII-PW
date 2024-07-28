@@ -107,9 +107,6 @@ public class LendBookDAO {
 	    return query.getResultList();
   }
 
-
-	
-
 	private int getMonth() {
 		return java.time.LocalDate.now().getMonthValue(); // Devuelve el mes actual como número entero
 	}
