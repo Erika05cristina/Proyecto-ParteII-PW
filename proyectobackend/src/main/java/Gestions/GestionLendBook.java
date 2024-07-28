@@ -75,20 +75,6 @@ public class GestionLendBook {
 	public List<Object[]> getMostReadBooksByMonth() {
         return (List<Object[]>) this.lendBookDAO.getMostReadBooksByMonth();
     }
-
-	
-//	public List<TopBooks> getMostReadBooksByMonthDTO() {
-//	    List<Object[]> results = this.getMostReadBooksByMonth();
-//	    List<TopBooks> mostReadBooks = new ArrayList<>();
-//
-//	    for (Object[] result : results) {
-//	        String bookName = (String) result[0];
-//	        Long count = (Long) result[1];
-//	        mostReadBooks.add(new TopBooks(bookName, count));
-//	    }
-//
-//	    return mostReadBooks;
-//	}
 	
 	 public List<Object[]> getClientOfTheMonth() {
 	        int currentMonth = getMonth();

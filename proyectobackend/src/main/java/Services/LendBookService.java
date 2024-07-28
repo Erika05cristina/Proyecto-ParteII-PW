@@ -80,35 +80,7 @@ public class LendBookService {
 			return null;
 		}
 	}
-
-	@PUT
-	@Produces("application/json")
-	@Consumes(MediaType.APPLICATION_JSON)
-	public Response updateLendBook(LendBook lendBook) {
-		try {
-			this.gestionLendBook.updateLendBook(lendBook);
-			return Response.ok(lendBook).status(200).build();
-		} catch (Exception e) {
-			e.printStackTrace();
-			return Response.status(503).entity(new Answord(Answord.ERROR, "Error en BD")).build();
-		}
-	}
-
-	@DELETE
-	@Path("/{id}")
-	public Response deleteLendBook(@PathParam("id") String id) {
-		try {
-			int idUser = Integer.valueOf(id);
-
-			this.gestionLendBook.deleteLendBook(idUser);
-			return Response.status(200).build();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			return Response.status(503).entity(new Answord(Answord.ERROR, "Error en BD")).build();
-		}
-	}
-
+	
 	@GET
 	@Path("/top-client")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -139,18 +111,42 @@ public class LendBookService {
 		}
 
 	}
-	
+
 	@GET
-    @Path("/top-books")
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<TopBooks> getMostReadBooksByMonth() {
-        return this.gestionLendBook.getMostReadBooksByMonthDTO();
-    }
-	
-//	@GET
-//	@Path("/read-books")
-//	@Produces("application/json")
-//	public List<Object[]> getMostReadBooksByMonth() {
-//		return this.gestionLendBook.getMostReadBooksByMonth();
-//	}
+	@Path("/top-books")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<TopBooks> getMostReadBooksByMonth() {
+		return this.gestionLendBook.getMostReadBooksByMonthDTO();
+	}
+
+	@PUT
+	@Produces("application/json")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response updateLendBook(LendBook lendBook) {
+		try {
+			this.gestionLendBook.updateLendBook(lendBook);
+			return Response.ok(lendBook).status(200).build();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return Response.status(503).entity(new Answord(Answord.ERROR, "Error en BD")).build();
+		}
+	}
+
+	@DELETE
+	@Path("/{id}")
+	public Response deleteLendBook(@PathParam("id") String id) {
+		try {
+			int idUser = Integer.valueOf(id);
+
+			this.gestionLendBook.deleteLendBook(idUser);
+			return Response.status(200).build();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return Response.status(503).entity(new Answord(Answord.ERROR, "Error en BD")).build();
+		}
+	}
+
+
+
 }
