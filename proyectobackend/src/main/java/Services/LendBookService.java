@@ -6,6 +6,7 @@ import java.util.Map;
 
 import Gestions.GestionLendBook;
 import Model.LendBook;
+import Model.TopBooks;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
@@ -57,13 +58,6 @@ public class LendBookService {
 			e.printStackTrace();
 			return null;
 		}
-	}
-
-	@GET
-	@Path("/read-books")
-	@Produces("application/json")
-	public List<Object[]> getMostReadBooksByMonth() {
-		return this.gestionLendBook.getMostReadBooksByMonth();
 	}
 
 	@GET
@@ -145,4 +139,18 @@ public class LendBookService {
 		}
 
 	}
+	
+	@GET
+    @Path("/top-books")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<TopBooks> getMostReadBooksByMonth() {
+        return this.gestionLendBook.getMostReadBooksByMonthDTO();
+    }
+	
+//	@GET
+//	@Path("/read-books")
+//	@Produces("application/json")
+//	public List<Object[]> getMostReadBooksByMonth() {
+//		return this.gestionLendBook.getMostReadBooksByMonth();
+//	}
 }

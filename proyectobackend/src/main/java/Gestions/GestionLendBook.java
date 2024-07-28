@@ -77,18 +77,18 @@ public class GestionLendBook {
     }
 
 	
-	public List<TopBooks> getMostReadBooksByMonthDTO() {
-	    List<Object[]> results = this.getMostReadBooksByMonth();
-	    List<TopBooks> mostReadBooks = new ArrayList<>();
-
-	    for (Object[] result : results) {
-	        String bookName = (String) result[0];
-	        Long count = (Long) result[1];
-	        mostReadBooks.add(new TopBooks(bookName, count));
-	    }
-
-	    return mostReadBooks;
-	}
+//	public List<TopBooks> getMostReadBooksByMonthDTO() {
+//	    List<Object[]> results = this.getMostReadBooksByMonth();
+//	    List<TopBooks> mostReadBooks = new ArrayList<>();
+//
+//	    for (Object[] result : results) {
+//	        String bookName = (String) result[0];
+//	        Long count = (Long) result[1];
+//	        mostReadBooks.add(new TopBooks(bookName, count));
+//	    }
+//
+//	    return mostReadBooks;
+//	}
 	
 	 public List<Object[]> getClientOfTheMonth() {
 	        int currentMonth = getMonth();
@@ -98,6 +98,19 @@ public class GestionLendBook {
 	private int getMonth() {
 		return java.time.LocalDate.now().getMonthValue(); // Devuelve el mes actual como número entero
 	}
+	
+	public List<TopBooks> getMostReadBooksByMonthDTO() {
+        List<Object[]> results = this.lendBookDAO.getMostReadBooksByMonth();
+        List<TopBooks> mostReadBooks = new ArrayList<>();
+
+        for (Object[] result : results) {
+            String bookName = (String) result[0];
+            Long count = (Long) result[1];
+            mostReadBooks.add(new TopBooks(bookName, count));
+        }
+
+        return mostReadBooks;
+    }
 
 
 }
