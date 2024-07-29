@@ -9,6 +9,7 @@ import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
+import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
@@ -61,15 +62,19 @@ public class MyBookService {
 
 		}
 	}
-
-	@GET
+	
+	@PUT
 	@Produces("application/json")
-	public List<MyBooks> listAllBooks() {
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response updateMyBook(MyBooks myBook) {
 		try {
-			return this.gestionMyBook.listAllMyBooks();
+			this.gestionMyBook.updateMyBook(myBook);
+			
+			return Response.ok(myBook).status(200).build();
 		} catch (Exception e) {
-			// TODO: handle exception
-			return null;
+			e.printStackTrace();
+			return Response.status(503).entity(new Answord(Answord.ERROR, "Error en BD")).build();
+		
 		}
 	}
 
@@ -120,6 +125,17 @@ public class MyBookService {
 		try {
 
 			return this.gestionMyBook.listOverdueBooks(idUser);
+		} catch (Exception e) {
+			// TODO: handle exception
+			return null;
+		}
+	}
+	
+	@GET
+	@Produces("application/json")
+	public List<MyBooks> listAllBooks() {
+		try {
+			return this.gestionMyBook.listAllMyBooks();
 		} catch (Exception e) {
 			// TODO: handle exception
 			return null;
