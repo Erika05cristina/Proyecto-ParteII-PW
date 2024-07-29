@@ -43,6 +43,19 @@ public class GestionReturnBook {
 	        
 	        return returnBookFound;
 	    }
+	    
+		/**
+		 * @describe El cliente del mes para el reporte
+		 * 
+		 */	    
+	    public List<Object[]> getClientOfTheMonth() {
+	        int currentMonth = getMonth();
+	        return returnBookDAO.getClientOfTheMonth(currentMonth);
+	    }
+
+	private int getMonth() {
+		return java.time.LocalDate.now().getMonthValue(); // Devuelve el mes actual como número entero
+	}
 
 	
 }

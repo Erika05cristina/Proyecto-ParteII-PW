@@ -1,6 +1,8 @@
 package Services;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import Gestions.GestionReturnBook;
 import Model.ReturnBook;
@@ -56,6 +58,37 @@ public class ReturnBookService {
             return Response.status(503).entity(new Answord(Answord.ERROR, "Error en BD")).build();
         }
     }
+    
+    @GET
+	@Path("/top-client")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getClientOfTheMonth() {
+		try {
+			List<Object[]> results = gestionReturnBook.getClientOfTheMonth();
+
+			if (results.isEmpty()) {
+				return Response.status(Response.Status.NOT_FOUND).entity("No se encontró cliente para el mes actual")
+						.build();
+			}
+
+			Object[] clientData = results.get(0);
+			int clientId = (int) clientData[0];
+			String clientName = (String) clientData[1];
+			Long count = (Long) clientData[2];
+
+			Map<String, Object> response = new HashMap<>();
+			response.put("clientId", clientId);
+			response.put("clientName", clientName);
+			response.put("bookCount", count);
+
+			return Response.ok(response).build();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error al obtener el cliente del mes")
+					.build();
+		}
+
+	}
 
     @PUT
     @Produces("application/json")

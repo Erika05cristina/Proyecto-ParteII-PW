@@ -76,15 +76,6 @@ public class GestionLendBook {
         return (List<Object[]>) this.lendBookDAO.getMostReadBooksByMonth();
     }
 	
-	 public List<Object[]> getClientOfTheMonth() {
-	        int currentMonth = getMonth();
-	        return lendBookDAO.getClientOfTheMonth(currentMonth);
-	    }
-
-	private int getMonth() {
-		return java.time.LocalDate.now().getMonthValue(); // Devuelve el mes actual como número entero
-	}
-	
 	public List<TopBooks> getMostReadBooksByMonthDTO() {
         List<Object[]> results = this.lendBookDAO.getMostReadBooksByMonth();
         List<TopBooks> mostReadBooks = new ArrayList<>();
