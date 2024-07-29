@@ -79,7 +79,7 @@ public class ReturnBookService {
 			Map<String, Object> response = new HashMap<>();
 			response.put("clientId", clientId);
 			response.put("clientName", clientName);
-			response.put("bookCount", count);
+			response.put("count", count);
 
 			return Response.ok(response).build();
 		} catch (Exception e) {
