@@ -28,10 +28,7 @@ public class BookService {
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response createBook(Book book) {
 		try {
-			if (book.getBoo_id() == 0)
-				return Response.status(400).entity(new Answord(Answord.EMPTY_FIELDS, Answord.MESSAGE_VALIDATION_ERROR))
-						.build();
-
+			
 			if (book.getBoo_autor() == null)
 				return Response.status(400).entity(new Answord(Answord.EMPTY_FIELDS, Answord.MESSAGE_VALIDATION_ERROR))
 						.build();

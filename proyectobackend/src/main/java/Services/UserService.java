@@ -37,10 +37,7 @@ public class UserService {
 	public Response createUser(User user) {	
 		
 		try {
-			if (user.getUs_id() == 0)
-				return Response.status(400).entity(new Answord(Answord.EMPTY_FIELDS, Answord.MESSAGE_VALIDATION_ERROR))
-						.build();
-
+			
 			if (user.getUs_name() == null)
 				return Response.status(400).entity(new Answord(Answord.EMPTY_FIELDS, Answord.MESSAGE_VALIDATION_ERROR))
 						.build();
