@@ -60,7 +60,7 @@ public class Start {
 		User user = new User();
 		User user2 = new User();
 
-		// ---- Books ----
+		// ---- Books Base ----
 		book.setBoo_name("El perfume");
 		book.setBoo_autor("Patrick Suskind");
 		book.setBoo_category("Tragedia");
