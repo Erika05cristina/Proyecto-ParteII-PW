@@ -14,7 +14,8 @@ public class CorsFilter implements ContainerResponseFilter {
 	
 	private static final List<String> ALLOWED_ORIGINS = Arrays.asList(
 			"http://localhost:4200",
-			"http://localhost:58184"
+			"http://localhost:58184",
+			"https://biblioteca-saquicela-villa-full-stack.netlify.app/*"
 			
 			);
 
